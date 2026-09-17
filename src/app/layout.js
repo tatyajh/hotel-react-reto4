@@ -1,13 +1,33 @@
 import { CurrentPageProvider } from "@/store/CurrentProvider";
 import { Menu } from "../../components/molecules/menu/Menu";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Roboto, Pacifico, Dancing_Script } from "next/font/google";
 import ProviderReservation from "@/store/ProviderReservation";
 
 
 const fonts = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '700', '800', '900']
+});
+
+// globals.css declara --primaryFont/--secondaryfont/--thirdFont como
+// Roboto/Pacifico/Dancing Script, pero ninguna se cargaba nunca: el
+// título y subtítulo caían al cursive genérico del sistema en vez de
+// la tipografía diseñada.
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-roboto',
+});
+const pacifico = Pacifico({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-pacifico',
+});
+const dancingScript = Dancing_Script({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-dancing',
 });
 
 export const metadata = {
@@ -20,7 +40,9 @@ export default function RootLayout({children}) {
     <html lang="en">
       <ProviderReservation>
         <CurrentPageProvider>
-          <body className={fonts.className}>
+          <body
+            className={`${fonts.className} ${roboto.variable} ${pacifico.variable} ${dancingScript.variable}`}
+          >
             <Menu />
             {children}
           </body>

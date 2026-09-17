@@ -72,6 +72,10 @@ export const CardsFilter = ({getDataHotels}) => {
         updateDateTo={setDateTo}
         updateSize={setSelectedSize}
         updatePrice={setSelectedPrice}
+        selectedCountry={selectedCountry}
+        dateHotelFrom={dateHotelFrom}
+        dateHotelTo={dateHotelTo}
+        resultCount={filterHotels.length}
       />
       {filterHotels.length > 0 ? (
         <div className={styles.cardsContainer}>
@@ -89,7 +93,7 @@ export const CardsFilter = ({getDataHotels}) => {
       <Snackbar
         open={setshowSnackbar}
         autoHideDuration={2000}
-        onClose={setShowSnackbar}
+        onClose={() => setShowSnackbar(false)}
       >
         <Alert severity="success" sx={{width: '100%'}}>
           Hotel agregado correctamente

@@ -25,23 +25,17 @@ export const Menu = () => {
     <Box sx={{flexGrow: 1}}>
       <AppBar position="static" className={styles.containerMenu}>
         <Toolbar variant="dense" className={styles.menu}>
-          <Typography variant="h3">{title(currentPage)}</Typography>
+          <Typography variant="h3" className={styles.menuTitle}>
+            {title(currentPage)}
+          </Typography>
           <div className={styles.contentOptionMenu}>
-            <Typography
-              variant="h6"
-              component="div"
-              // className={styles.labelMenu}
-            >
+            <Typography variant="h6" component="div">
               <Link href={'/'} className={styles.labelMenu}>
                 Home
               </Link>
             </Typography>
 
-            <Typography
-              variant="h6"
-              component="div"
-              // className={styles.labelMenu}
-            >
+            <Typography variant="h6" component="div">
               <Link href={'/reservas'} className={styles.labelMenu}>
                 Reservas
               </Link>

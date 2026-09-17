@@ -5,9 +5,9 @@
 }
 
 :root {
-  --primaryFont: 'Roboto', sans-serif;
-  --secondaryfont: 'pacifico', cursive;
-  --thirdFont: 'Dancing Script', cursive;
+  --primaryFont: var(--font-roboto), 'Roboto', sans-serif;
+  --secondaryfont: var(--font-pacifico), 'Pacifico', cursive;
+  --thirdFont: var(--font-dancing), 'Dancing Script', cursive;
   --primarytexcolor: #FFFF;
   --sm: 400;
   --md: 500;

@@ -86,7 +86,7 @@ export const CardHotel = ({
           </Typography>
         </CardContent>
         <CardActions className={styles.containerButton}>
-          <Link href={`detail/${hotel.name}`}>
+          <Link href="/detail">
             <MainButton
               className={styles.buttonCardHotel}
               onClick={handleClick}

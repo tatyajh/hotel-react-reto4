@@ -1,33 +1,49 @@
 .containerMenu {
   width: 100%;
   position: fixed;
-  height: 50px;
   top: 0px;
-  background-color: rgba(146, 142, 142, 0.692);
-  margin-bottom: 100px;
+  z-index: 10;
+  background-color: rgba(80, 78, 78, 0.85);
 }
 
 .menu {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 0.6rem 1rem;
+  padding: 0.6rem 1rem;
+}
+
+.menuTitle {
+  font-size: 1.6rem !important;
+  color: var(--primarytexcolor);
 }
 
 .contentOptionMenu {
   display: flex;
   justify-content: flex-end;
-  gap: 1.6rem;
+  gap: 1.2rem;
   text-decoration: none;
 }
 
 .labelMenu {
-  color: rgb(32, 32, 32);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.1rem;
 }
 .labelMenu:hover {
   color: #e26811;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menuTitle {
+    font-size: 2.2rem !important;
+  }
+
+  .labelMenu {
+    font-size: 1.4rem;
+  }
 }

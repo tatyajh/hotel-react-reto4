@@ -1,11 +1,34 @@
 import styles from "./header.module.css";
 
+const formatDate = (value) =>
+  new Date(`${value}T00:00:00`).toLocaleDateString("en-US", {
+    month: "long",
+    day: "2-digit",
+    year: "numeric",
+  });
+
+const buildFilterDescription = ({selectedCountry, dateHotelFrom, dateHotelTo, resultCount}) => {
+  const country =
+    selectedCountry && selectedCountry !== "all" ? selectedCountry : "any country";
+  const hasDates =
+    dateHotelFrom && dateHotelFrom !== "all" && dateHotelTo && dateHotelTo !== "all";
+  const dateRange = hasDates
+    ? ` from ${formatDate(dateHotelFrom)} to ${formatDate(dateHotelTo)}`
+    : "";
+  const count = resultCount ?? 0;
+  return `${count} hotel${count === 1 ? "" : "s"} available in ${country}${dateRange}`;
+};
+
 export const Header = ({
   updatePrice,
   updateCountry,
   updateSize,
   updateDateFrom,
   updateDateTo,
+  selectedCountry,
+  dateHotelFrom,
+  dateHotelTo,
+  resultCount,
 }) => {
   const fecha = new Date().setHours(0, 0, 0, 0);
   const today = new Date(fecha).toISOString().split("T")[0]; // Obtiene la fecha actual en formato YYYY-MM-DD
@@ -68,8 +91,7 @@ export const Header = ({
       </div>
       <h2 className={styles.header__subtitle}>We have found for you...</h2>
       <p className={styles.header__filterDescription}>
-        Small budget-priced hotels from September 03, 2023 to february 14, 2021
-        in Argentina
+        {buildFilterDescription({selectedCountry, dateHotelFrom, dateHotelTo, resultCount})}
       </p>
     </header>
   );

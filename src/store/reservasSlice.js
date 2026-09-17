@@ -8,8 +8,13 @@ export const ReservasSlice = createSlice({
   reducers: {
     addReservation: (state, {payload}) => {
       state.hotelsReservation.push(payload);
+    },
+    removeReservation: (state, {payload}) => {
+      state.hotelsReservation = state.hotelsReservation.filter(
+        (hotel) => hotel.name !== payload.name
+      );
     }
   }
 });
 
-export const {addReservation} = ReservasSlice.actions;
+export const {addReservation, removeReservation} = ReservasSlice.actions;

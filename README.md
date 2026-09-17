@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hotels Travelling — Buscar Hotel
+
+Una vista de búsqueda y reserva de hoteles: filtrar por país, fechas, precio y tamaño, ver las tarjetas de cada hotel y entrar al detalle. Construida con diseño atómico (átomos, moléculas, organismos, plantillas) para que cambiar una pieza pequeña no obligue a tocar el resto de la aplicación.
+
+Sitio publicado: https://tatyajh.github.io/hotel-react-reto4/
+
+## Características
+
+- Filtro de hoteles por país, rango de fechas, precio y tamaño.
+- Listado de hoteles obtenido de una API pública (mockapi.io).
+- Detalle de cada hotel con opción de reservar.
+- Página de reservas con opción de eliminar una reserva ya hecha.
+- Diseño responsivo (mobile / tablet / desktop).
+
+## Stack técnico
+
+- Next.js (App Router) + React
+- Redux Toolkit para el estado de reservas
+- Material UI (MUI)
+- CSS Modules
+
+## Estructura de archivos
+
+Organizada con diseño atómico:
+
+```
+components/
+├── atoms/        # Piezas mínimas (botones)
+├── molecules/    # Header, tarjeta de hotel, menú
+├── organisms/    # Filtro de tarjetas, lista de reservas
+└── template/     # Composición de organismos por página
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) para ver el resultado.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Build y despliegue
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+El proyecto se exporta como sitio estático y se publica en GitHub Pages:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Esto genera la carpeta `out/`, que se publica en la rama `gh-pages`.
